@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>一台电脑部署多个 Hexo Blog aka 一台电脑使用两个多个 GitHub 账号</title>
+      <link href="/2075242321/"/>
+      <url>/2075242321/</url>
+      
+        <content type="html"><![CDATA[<p><img src="/img/hexo-github.webp"></p><p>因为自己想在一台电脑上搭建多个Hexo blog，因为之前分享欲突然爆炸，所以才有了这样的需求。但是网上很多分享都有点过期，现在使用总会遇见一些问题，于是写这篇教程，分享给需要用到的人，也做一下记录，以免以后遇见相同问题又忘记该怎么做了。</p><p>以下做一下成功实践的方法：</p><ol><li>进入.shh目录</li></ol><p>使用下面命令行创建新密钥：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;这里是你的第二个github账号的邮箱&quot;</span><br></pre></td></tr></table></figure><p>回车后会出现：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Generating public/private rsa key pair.  </span><br><span class="line">Enter file in which to save the key (/c/Users/you/.ssh/id_rsa): </span><br></pre></td></tr></table></figure><p>注意此时需要你【输入新密钥的名称】，一定要与旧密钥名称不同，之后再两次回车，新密钥创建完毕。</p><ol start="2"><li><p>配置config</p><p>查看你的.ssh&#x2F;根路径下, 有没有config文件，如果没有，新创建一个config文件，不要有文件格式后缀名存在。</p><p>然后编辑config文件：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">#第一个账号，默认使用的账号，不用做任何更改</span><br><span class="line">Host github.com</span><br><span class="line">HostName github.com</span><br><span class="line">User git</span><br><span class="line">IdentityFile ~/.ssh/id_rsa</span><br><span class="line"></span><br><span class="line">#第二个新账号，#&quot;xxxxxx&quot;为前缀名，可以任意设置，要记住，后面需要用到</span><br><span class="line">Host xxxxxx.github.com</span><br><span class="line">HostName github.com</span><br><span class="line">User git</span><br><span class="line">IdentityFile ~/.ssh/这里是你创建的新密钥的名称</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></li><li><p>在第二个GitHub账户下设置SSH key</p><p>GitHub账号主页，依次进入Settings —&gt; SSH and GPG keys —&gt; New SSH key，将刚复制的内容粘贴到Key那里，Title可以随便填，点击Add Key保存。</p></li><li><p>清空本地的 SSH 缓存，添加新的 SSH 密钥 到 SSH agent中</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ssh-add -D</span><br><span class="line">ssh-add xxxxxx #旧密钥名称，一般是id_rsa</span><br><span class="line">ssh-add xxxxxx #新创建的密钥名称</span><br></pre></td></tr></table></figure><p>如果执行以上命令出现错误：Could not open a connection to your authentication agent.，那么就需要先执行ssh-agent bash，再执行以上命令。</p></li><li><p>验证配置是否成功<br>依次执行以下命令，第一个为默认ssh_key验证；第二个为新的ssh_key验证，其中“xxxxxx”为你先前在config文件中的命名</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br><span class="line">ssh -T git@xxxxxxx.github.com</span><br></pre></td></tr></table></figure><p>依次显示以下信息, 则说明配置成功：</p><p>Hi 你的用户名! You’ve successfully authenticated, but GitHub does not provide shell access.</p></li><li><p>取消全局用户名&#x2F;邮箱配置，单独设置用户名&#x2F;邮箱<br>   执行如下命令，取消全局用户名和邮箱配置（如果已经设置了全局的话）：</p></li></ol>   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global --unset user.name</span><br><span class="line">git config --global --unset user.email</span><br></pre></td></tr></table></figure><p>   分别进入你的两个Hexo博客.git目录下执行以下命令单独设置用户名&#x2F;邮箱：</p>   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config user.name &quot;这里是用户名&quot;</span><br><span class="line">git config user.email &quot;这里是你的邮箱&quot;</span><br></pre></td></tr></table></figure><p>   如果此时报错：fatal: not in a git directory，说明你没有进入.git目录下，具体路径：deploy_git \ .git，.git目录是隐藏的，需要你设置隐藏目录可见。</p><p>   如果你的新hexo blog 目录下还没有这个.deploy_git文件夹的话，你需要先 hexo g —— hexo d一下，虽然会部署失败，但是这时候你的文件目录下就会生成这个文件夹了。</p><p>   这时在进入.git文件夹里git bash here，输入以上的代码进行设置就可以完成第二个github账号的设置了。</p><ol start="7"><li><p>hexo 配置文件修改git地址<br>打开你的第二个博客Hexo目录下的_config.yml文件，找到deploy关键字，写入以下配置并保存（这里的XXXXX就是前面提到过后面要用的名字，记得要保持一致）：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repository: git@xxxxxx.github.com:你的用户名/你的用户名.git</span><br><span class="line">  branch: main</span><br></pre></td></tr></table></figure></li><li><p>配置完成之后我遇到了这样的问题（希望你不要遇到，如果遇到了也不要禁止，因为这个坑我已经踩过了，解决方法分享给你）：</p><p>错误提示如下：</p><p>* Please tell me who you are. </p><p>Run </p><p>git config –global user.email “<a href="mailto:&#121;&#111;&#x75;&#x40;&#x65;&#120;&#x61;&#x6d;&#112;&#108;&#x65;&#46;&#x63;&#111;&#109;">&#121;&#111;&#x75;&#x40;&#x65;&#120;&#x61;&#x6d;&#112;&#108;&#x65;&#46;&#x63;&#111;&#109;</a>” </p><p>git config –global <a href="http://user.name/">user.name</a> “Your Name”</p><p>to set your account’s default identity. </p><p>Omit –global to set the identity only in this repository. </p><p>fatal: unable to auto-detect email address</p><p>解决方法：</p><p>找到刚才那个.git文件目录（第二个hexo的）里的config文件</p><p> #添加以下三行：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[user]</span><br><span class="line"></span><br><span class="line">   email = yourname@me.com</span><br><span class="line"></span><br><span class="line">   name = yourname</span><br></pre></td></tr></table></figure><p>如果原本的name &#x3D; 你的电子邮箱，直接改成你的第二个github用户名，然后添加 email &#x3D; 你的电子邮箱 即可。</p><p>好了，大功告成了。</p><p>在同一台电脑上部署更多个hexo blog也是相同的逻辑，添加更多github账号，然后在不同的hexo目录里分别设置即可。</p></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 随记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 方法 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Hello Cloverist</title>
+      <link href="/2885275944/"/>
+      <url>/2885275944/</url>
+      
+        <content type="html"><![CDATA[<p><img src="/img/clover.webp"></p><p>我总觉得人生发生的所有事，都好像有预设的轨迹一样，很多当下发生的事情你并没有刻意的去促使它的发生，也看起来没有什么特殊的意义。 </p><p>但总有一天，某个时刻，这个时刻正在发生的事情与之前那个让你完全没有可以部署的点发生了链接。</p><p> 甚至，就是因为之前的那件事，那个决定，那个遇见才促使了现在这件事的发生。</p><p> 这也许就是佛教中所说的“因果”吧。</p><p> 渺小又无知的我不知道这些我所认为的巧合的点就是巧合的发生而已还是我们的【人生】其实也像被某个程序预设好了一样——只是我们身为一粒微尘并不能意识到。 </p><p>也许我们已经身在元宇宙却茫然不自知。 </p><p>也许由于我们的眼睛能看到的东西太少，其实这些巧合是那些看不见的力量的“杰作”？（不是说鬼啦…) </p><p>总之，我作为一个无知无能的人，却还是有想要记录下人生中发生的琐碎和脑海中发生的奇怪“灵光”的欲望。 </p><p>所以，WHY NOT？反正我就活这一次（也许吧？） </p><p>干脆想干什么就去勇敢的行动，就算之后会后悔，会删掉这些文字又怎样，大不了再删嘛！</p><p> 好，就这样！</p><p>（其实是因为的的面膜干了！我要去擦脸了…鬼脸.jpg)</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 日?记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 想法 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
+</search>
