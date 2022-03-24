@@ -2,6 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://cloverist.win/293489029/</loc>
+    
+    <lastmod>2022-03-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://cloverist.win/2075242321/</loc>
+    
+    <lastmod>2022-03-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://cloverist.win/1924144326/</loc>
     
     <lastmod>2022-03-24</lastmod>
@@ -21,15 +39,6 @@
   
   <url>
     <loc>http://cloverist.win/3445520840/</loc>
-    
-    <lastmod>2022-03-24</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://cloverist.win/2075242321/</loc>
     
     <lastmod>2022-03-24</lastmod>
     
@@ -95,13 +104,6 @@
   </url>
   
   <url>
-    <loc>http://cloverist.win/tags/Hexo/</loc>
-    <lastmod>2022-03-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://cloverist.win/tags/hexo/</loc>
     <lastmod>2022-03-24</lastmod>
     <changefreq>weekly</changefreq>
@@ -110,6 +112,13 @@
   
   <url>
     <loc>http://cloverist.win/tags/%E5%9D%91/</loc>
+    <lastmod>2022-03-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://cloverist.win/tags/%E9%9A%90%E7%A7%81/</loc>
     <lastmod>2022-03-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
