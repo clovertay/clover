@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>svg当背景加载超快</title>
+      <link href="/259465524/"/>
+      <url>/259465524/</url>
+      
+        <content type="html"><![CDATA[<p><img src="/img/bg.svg"></p><p>Hexo的butterfly主题可以用超清的图片当头图和背景图，看起来真的好炫酷。</p><p>拿一张NASA的宇宙图片当头图他不香吗？</p><p>拿Bing每日图片当头图他不香吗？</p><p>拿世界名画当头图他不香吗？</p><p>香！真香！！好香啊！！！</p><p>可是强迫症看到Pagespeed insights的测试结果顿时就觉得今日的选择困难症又被激发了。</p><p>虽然这些图都很有美感，品质也有保证，但是无奈转换成webp也还是会拖后腿。</p><p>于是就发现了一些可以生成svg图片的宝藏网站。</p><p>现在我的头图就是一个只有1.51kb大小的svg文件，真的太香了！！</p><p>秒加载，还很高清，虽然svg图片一般都是比较简单的图案，但相信即使简单的图案也能满足不少人的需求。</p><p>好的事情就是要拿来分享的~</p><p>请自己搜索 svg background 关键词就可以找到了。</p><p><img src="https://dl4.weshineapp.com/gif/20220114/925ddb9e82d2002c9e3b9755b07fbad7.gif?f=micro_" alt="img"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 随记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> hexo </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>一台电脑部署多个 Hexo Blog aka 一台电脑使用两个多个 GitHub 账号</title>
       <link href="/2075242321/"/>
       <url>/2075242321/</url>
@@ -47,6 +72,8 @@
             
             <tag> VPS </tag>
             
+            <tag> 坑 </tag>
+            
         </tags>
       
     </entry>
@@ -71,6 +98,8 @@
         <tags>
             
             <tag> 营业执照 </tag>
+            
+            <tag> 坑 </tag>
             
         </tags>
       
