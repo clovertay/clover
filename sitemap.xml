@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://cloverist.win/477260868/</loc>
+    
+    <lastmod>2022-07-01</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://cloverist.win/2286857247/</loc>
     
     <lastmod>2022-04-01</lastmod>
@@ -85,7 +94,7 @@
 
   <url>
     <loc>http://cloverist.win/</loc>
-    <lastmod>2022-04-01</lastmod>
+    <lastmod>2022-07-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -93,49 +102,56 @@
   
   <url>
     <loc>http://cloverist.win/tags/%E6%83%B3%E6%B3%95/</loc>
-    <lastmod>2022-04-01</lastmod>
+    <lastmod>2022-07-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://cloverist.win/tags/%E8%90%A5%E4%B8%9A%E6%89%A7%E7%85%A7/</loc>
-    <lastmod>2022-04-01</lastmod>
+    <lastmod>2022-07-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://cloverist.win/tags/VPS/</loc>
-    <lastmod>2022-04-01</lastmod>
+    <lastmod>2022-07-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://cloverist.win/tags/hexo/</loc>
-    <lastmod>2022-04-01</lastmod>
+    <lastmod>2022-07-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://cloverist.win/tags/%E5%9D%91/</loc>
-    <lastmod>2022-04-01</lastmod>
+    <lastmod>2022-07-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://cloverist.win/tags/%E9%9A%90%E7%A7%81/</loc>
-    <lastmod>2022-04-01</lastmod>
+    <lastmod>2022-07-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://cloverist.win/tags/%E5%9F%BA%E9%87%91/</loc>
-    <lastmod>2022-04-01</lastmod>
+    <lastmod>2022-07-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://cloverist.win/tags/bug/</loc>
+    <lastmod>2022-07-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -144,14 +160,14 @@
   
   <url>
     <loc>http://cloverist.win/categories/%E9%9A%8F%E8%AE%B0/</loc>
-    <lastmod>2022-04-01</lastmod>
+    <lastmod>2022-07-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://cloverist.win/categories/%E6%97%A5-%E8%AE%B0/</loc>
-    <lastmod>2022-04-01</lastmod>
+    <lastmod>2022-07-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
